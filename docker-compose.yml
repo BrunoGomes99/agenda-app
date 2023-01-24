@@ -1,0 +1,27 @@
+version: '3'
+services:
+    mysql:
+        image: mysql:8.0
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+        networks:
+            - "my-network"
+    dotnet:
+        build:
+            dockerfile: ./Dockerfile
+            context: .
+        image: agendapp/dotnet
+        container_name: dotnet
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+        ports:
+            - "8888:80"
+            - "8889:443"
+        networks:
+            - "my-network"
+        depends_on:
+            - "mysql"
+    
+networks: 
+    my-network:
+        driver: bridge
