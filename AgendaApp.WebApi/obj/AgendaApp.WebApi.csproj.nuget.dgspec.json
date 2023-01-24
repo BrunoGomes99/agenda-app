@@ -4,14 +4,14 @@
     "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.WebApi\\AgendaApp.WebApi.csproj": {}
   },
   "projects": {
-    "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.WebApi\\AgendaApp.WebApi.csproj": {
+    "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Domain\\AgendaApp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.WebApi\\AgendaApp.WebApi.csproj",
-        "projectName": "AgendaApp.WebApi",
-        "projectPath": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.WebApi\\AgendaApp.WebApi.csproj",
+        "projectUniqueName": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Domain\\AgendaApp.Domain.csproj",
+        "projectName": "AgendaApp.Domain",
+        "projectPath": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Domain\\AgendaApp.Domain.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.WebApi\\obj\\",
+        "outputPath": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,9 +40,216 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Repository\\AgendaApp.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Repository\\AgendaApp.Repository.csproj",
+        "projectName": "AgendaApp.Repository",
+        "projectPath": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Repository\\AgendaApp.Repository.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Domain\\AgendaApp.Domain.csproj": {
+                "projectPath": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Domain\\AgendaApp.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.2.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Service\\AgendaApp.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Service\\AgendaApp.Service.csproj",
+        "projectName": "AgendaApp.Service",
+        "projectPath": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Service\\AgendaApp.Service.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Domain\\AgendaApp.Domain.csproj": {
+                "projectPath": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Domain\\AgendaApp.Domain.csproj"
+              },
+              "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Repository\\AgendaApp.Repository.csproj": {
+                "projectPath": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Repository\\AgendaApp.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.WebApi\\AgendaApp.WebApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.WebApi\\AgendaApp.WebApi.csproj",
+        "projectName": "AgendaApp.WebApi",
+        "projectPath": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.WebApi\\AgendaApp.WebApi.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.WebApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Service\\AgendaApp.Service.csproj": {
+                "projectPath": "D:\\Meus Documentos\\Projeto Agenda\\AgendaApp\\AgendaApp.Service\\AgendaApp.Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.15.1, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
