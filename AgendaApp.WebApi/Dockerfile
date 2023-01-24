@@ -8,6 +8,10 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["AgendaApp.WebApi/AgendaApp.WebApi.csproj", "AgendaApp.WebApi/"]
+COPY ["AgendaApp.Service/AgendaApp.Service.csproj", "AgendaApp.Service/"]
+COPY ["AgendaApp.Domain/AgendaApp.Domain.csproj", "AgendaApp.Domain/"]
+COPY ["AgendaApp.Repository/AgendaApp.Repository.csproj", "AgendaApp.Repository/"]
+COPY ["AgendaApp.Test/AgendaApp.Test.csproj", "AgendaApp.Test/"]
 RUN dotnet restore "AgendaApp.WebApi/AgendaApp.WebApi.csproj"
 COPY . .
 WORKDIR "/src/AgendaApp.WebApi"

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AgendaApp.Service.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -9,14 +10,17 @@ namespace AgendaApp.WebApi.Controllers
     public class AlertController : ControllerBase
     {
         private readonly ILogger<AlertController> _logger;
+        private readonly IAlertTypeService _alertTypeService;
 
-        public AlertController(ILogger<AlertController> logger)
+        public AlertController(IAlertTypeService alertTypeService, ILogger<AlertController> logger)
         {
             _logger = logger;
+            _alertTypeService = alertTypeService;
         }
 
         // GET: api/<AlertController>
         [HttpGet]
+        [Route("types")]
         public IActionResult GetAlertTypes()
         {
             _logger.LogInformation($"The AlertController was invoked. Method: GetAlertTypes()");
@@ -25,7 +29,7 @@ namespace AgendaApp.WebApi.Controllers
 
             try
             {
-                //response.Data = 
+                response.Data = _alertTypeService.GetAlertTypes();
             }
             catch (Exception ex)
             {
@@ -38,7 +42,7 @@ namespace AgendaApp.WebApi.Controllers
                 throw new Exception(ex.Message);                
             }
 
-            _logger.LogInformation($"The AlertController was invoked. Method: GetAlertTypes()");
+            _logger.LogInformation($"The AlertController was invoked. Method was finished: GetAlertTypes()");
 
             return Ok(response);
         }

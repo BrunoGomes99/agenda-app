@@ -47,3 +47,5 @@ D:\Meus Documentos\Projeto Agenda\AgendaApp\AgendaApp.WebApi\bin\Debug\net6.0\Ag
 D:\Meus Documentos\Projeto Agenda\AgendaApp\AgendaApp.WebApi\bin\Debug\net6.0\AgendaApp.Service.pdb
 D:\Meus Documentos\Projeto Agenda\AgendaApp\AgendaApp.WebApi\bin\Debug\net6.0\AgendaApp.Domain.pdb
 D:\Meus Documentos\Projeto Agenda\AgendaApp\AgendaApp.WebApi\bin\Debug\net6.0\AgendaApp.Repository.pdb
+D:\Meus Documentos\Projeto Agenda\AgendaApp\AgendaApp.WebApi\bin\Debug\net6.0\AutoMapper.dll
+D:\Meus Documentos\Projeto Agenda\AgendaApp\AgendaApp.WebApi\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
