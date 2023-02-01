@@ -3,9 +3,12 @@ services:
     mysql:
         image: mysql:8.0
         container_name: mysqldb
-        environment:
-            - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_DATABASE=agendaapp_dev_db
+        environment:            
+            - MYSQL_PORT=3306
+            - MYSQL_USER=admin
+            - MYSQL_DATABASE=agenda_dev_db
+            - MYSQL_PASSWORD=vUVzVaOCEnLubsarhgMc            
+            - MYSQL_HOST=agenda-dev.coqndsdvmjhd.us-east-1.rds.amazonaws.com
         networks:
             - "my-network"
     dotnet:

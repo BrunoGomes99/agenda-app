@@ -13,10 +13,10 @@ namespace AgendaApp.Repository.EntityConfig
     {
         public void Configure(EntityTypeBuilder<AlertType> builder)
         {
-            builder.ToTable("tipo_alerta");
+            builder.ToTable("alert_type");
             builder.HasKey(h => h.Id);
             builder.Property(h => h.Id).HasColumnName("id").ValueGeneratedOnAdd();
-            builder.Property(h => h.Alert).HasColumnName("alerta");            
+            builder.Property(h => h.Alert).HasColumnName("alert");            
         }
     }
 }
