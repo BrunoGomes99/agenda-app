@@ -6,6 +6,8 @@ using AgendaApp.Service.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using AutoMapper;
+using AgendaApp.Domain.DTO;
+using AgendaApp.Domain.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,12 +32,21 @@ builder.Services.AddSwaggerGen();
 
 #region AutoMapper
 
+var config = new MapperConfiguration(cfg =>
+{
+    cfg.CreateMap<Alert, AlertDto>();
+    cfg.CreateMap<AlertDto, Alert>();
+});
+IMapper mapper = config.CreateMapper();
+builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(typeof(Program));
 
 #endregion AutoMapper
 
 builder.Services.AddTransient<IAlertTypeService, AlertTypeService>();
 builder.Services.AddTransient<IAlertTypeRepository, AlertTypeRepository>();
+builder.Services.AddTransient<IAlertService, AlertService>();
+builder.Services.AddTransient<IAlertRepository, AlertRepository>();
 
 #region Configure Logs
 

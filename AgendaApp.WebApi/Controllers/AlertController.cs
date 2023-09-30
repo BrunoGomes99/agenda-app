@@ -1,5 +1,7 @@
-﻿using AgendaApp.Service.Interfaces;
+﻿using AgendaApp.Domain.DTO;
+using AgendaApp.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,11 +12,13 @@ namespace AgendaApp.WebApi.Controllers
     public class AlertController : ControllerBase
     {
         private readonly ILogger<AlertController> _logger;
+        private readonly IAlertService _alertService;
         private readonly IAlertTypeService _alertTypeService;
 
-        public AlertController(IAlertTypeService alertTypeService, ILogger<AlertController> logger)
+        public AlertController(IAlertService alertService, IAlertTypeService alertTypeService, ILogger<AlertController> logger)
         {
             _logger = logger;
+            _alertService = alertService;
             _alertTypeService = alertTypeService;
         }
 
@@ -39,7 +43,7 @@ namespace AgendaApp.WebApi.Controllers
                 _logger.LogError(ex.Message);
                 _logger.LogError(ex.StackTrace);
 
-                throw new Exception(ex.Message);                
+                return Problem(ex.Message, statusCode: HttpStatusCode.InternalServerError.GetHashCode());
             }
 
             _logger.LogInformation($"The AlertController was invoked. Method was finished: GetAlertTypes()");
@@ -47,29 +51,147 @@ namespace AgendaApp.WebApi.Controllers
             return Ok(response);
         }
 
-        // GET api/<AlertController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet]
+        [Route("/{id}")]
+        public IActionResult GetById(int id)
         {
-            return "value";
+            _logger.LogInformation($"The AlertController was invoked. Method: GetById({id})");
+
+            ResponseBase response = new ResponseBase();
+
+            try
+            {
+                var result = _alertService.GetById(id);
+
+                if (result == null) return NotFound();
+
+                response.Data = result;
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.ErrorMessage = ex.Message;
+                response.Data = null;
+                _logger.LogError(ex.Message);
+                _logger.LogError(ex.StackTrace);
+
+                return Problem(ex.Message, statusCode: HttpStatusCode.InternalServerError.GetHashCode());
+            }
+
+            _logger.LogInformation($"The AlertController was invoked. Method was finished: GetById({id})");
+
+            return Ok(response);
         }
 
-        // POST api/<AlertController>
+        [HttpGet]        
+        public IActionResult Get()
+        {
+            _logger.LogInformation($"The AlertController was invoked. Method: Get()");
+
+            ResponseBase response = new ResponseBase();
+
+            try
+            {
+                response.Data = _alertService.Get();
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.ErrorMessage = ex.Message;
+                response.Data = null;
+                _logger.LogError(ex.Message);
+                _logger.LogError(ex.StackTrace);
+
+                return Problem(ex.Message, statusCode: HttpStatusCode.InternalServerError.GetHashCode());
+            }
+
+            _logger.LogInformation($"The AlertController was invoked. Method was finished: Get()");
+
+            return Ok(response);
+        }
+        
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] AlertDto dto)
         {
-        }
+            _logger.LogInformation($"The AlertController was invoked. Method: Post()");
 
-        // PUT api/<AlertController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+            ResponseBase response = new ResponseBase();
+
+            try
+            {
+                response.Data = _alertService.Save(dto);
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.ErrorMessage = ex.Message;
+                response.Data = null;
+                _logger.LogError(ex.Message);
+                _logger.LogError(ex.StackTrace);
+
+                return Problem(ex.Message, statusCode: HttpStatusCode.BadRequest.GetHashCode());
+            }
+
+            _logger.LogInformation($"The AlertController was invoked. Method was finished: Post()");
+
+            return Created("",response);
+        }
+        
+        [HttpPut]
+        public IActionResult Put([FromBody] AlertDto dto)
         {
+            _logger.LogInformation($"The AlertController was invoked. Method: Put()");
+
+            ResponseBase response = new ResponseBase();
+
+            try
+            {
+                response.Data = _alertService.Update(dto);
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.ErrorMessage = ex.Message;
+                response.Data = null;
+                _logger.LogError(ex.Message);
+                _logger.LogError(ex.StackTrace);
+
+                return Problem(ex.Message, statusCode: HttpStatusCode.BadRequest.GetHashCode());
+            }
+
+            _logger.LogInformation($"The AlertController was invoked. Method was finished: Put()");
+
+            return Ok(response);
         }
 
         // DELETE api/<AlertController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            _logger.LogInformation($"The AlertController was invoked. Method: Delete({id})");
+
+            ResponseBase response = new ResponseBase();
+
+            try
+            {
+                var entity = _alertService.GetById(id);
+                if (entity == null) return NotFound();
+                else _alertService.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.ErrorMessage = ex.Message;
+                response.Data = null;
+                _logger.LogError(ex.Message);
+                _logger.LogError(ex.StackTrace);
+
+                return Problem(ex.Message, statusCode: HttpStatusCode.InternalServerError.GetHashCode());
+            }
+
+            _logger.LogInformation($"The AlertController was invoked. Method was finished: Delete({id})");
+
+            return Ok(response);
         }
     }
 }
