@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaApp.WebApi", "AgendaApp.WebApi\AgendaApp.WebApi.csproj", "{A68D5757-6B1F-4B51-820C-3779C80D6033}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaApp.Service", "AgendaApp.Service\AgendaApp.Service.csproj", "{31F388D8-8F8D-46F4-A9DF-8CBF28ECC63E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaApp.Service", "AgendaApp.Service\AgendaApp.Service.csproj", "{31F388D8-8F8D-46F4-A9DF-8CBF28ECC63E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - WebApi", "0 - WebApi", "{F08BA0B2-376F-4771-A512-CA919FEE7F5C}"
 EndProject
@@ -17,11 +17,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3- Repository", "3- Reposit
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4- Test", "4- Test", "{ABA5D0D4-EF65-48EE-BDB3-03810A82F25B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaApp.Domain", "AgendaApp.Domain\AgendaApp.Domain.csproj", "{828FB69B-9C8E-41BE-92B8-4AB0D2DE29A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaApp.Domain", "AgendaApp.Domain\AgendaApp.Domain.csproj", "{828FB69B-9C8E-41BE-92B8-4AB0D2DE29A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaApp.Repository", "AgendaApp.Repository\AgendaApp.Repository.csproj", "{43567401-9CB0-4E6D-83C5-BDCF8A14D708}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaApp.Repository", "AgendaApp.Repository\AgendaApp.Repository.csproj", "{43567401-9CB0-4E6D-83C5-BDCF8A14D708}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaApp.Test", "AgendaApp.Test\AgendaApp.Test.csproj", "{DB56E8BB-CB47-4B72-93B0-99007B152FDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaApp.Test", "AgendaApp.Test\AgendaApp.Test.csproj", "{DB56E8BB-CB47-4B72-93B0-99007B152FDB}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{91C6F068-670C-4599-97BF-88160AA6C7A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{DB56E8BB-CB47-4B72-93B0-99007B152FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB56E8BB-CB47-4B72-93B0-99007B152FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB56E8BB-CB47-4B72-93B0-99007B152FDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91C6F068-670C-4599-97BF-88160AA6C7A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91C6F068-670C-4599-97BF-88160AA6C7A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91C6F068-670C-4599-97BF-88160AA6C7A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91C6F068-670C-4599-97BF-88160AA6C7A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

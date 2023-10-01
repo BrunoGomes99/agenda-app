@@ -1,28 +1,38 @@
-version: '3'
+version: '3.4'
+
 services:
-    mysql:
-        image: mysql:8.0
-        container_name: mysqldb
-        environment:
-            - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_DATABASE=agendaapp_dev_db
-        networks:
-            - "my-network"
-    dotnet:
-        build:
-            dockerfile: ./Dockerfile
-            context: .
-        image: agendapp/dotnet
-        container_name: dotnet
-        environment:
-            - ASPNETCORE_ENVIRONMENT=Development
-        ports:
-            - "8888:80"
-            - "8889:443"
-        networks:
-            - "my-network"
-        depends_on:
-            - "mysql"
+  rabbitmq:
+      image: rabbitmq:3.12-management
+      container_name: rabbitmq
+      ports:
+          - "5672:5672"
+          - "15672:15672"
+      networks:
+          - "my-network"
+  mysql:
+      image: mysql:8.0
+      container_name: mysqldb
+      environment:
+          - MYSQL_ROOT_PASSWORD=root
+          - MYSQL_DATABASE=agendaapp_dev_db
+      networks:
+          - "my-network"
+  agendaapp.webapi:
+    image: ${DOCKER_REGISTRY-}agendaappwebapi
+    build:
+      context: .
+      dockerfile: AgendaApp.WebApi/Dockerfile
+    container_name: dotnet_app
+    environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+        - "8888:80"
+        - "8889:443"
+    networks:
+        - "my-network"
+    depends_on:
+        - "rabbitmq"
+        - "mysql"
     
 networks: 
     my-network:
