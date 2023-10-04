@@ -45,6 +45,7 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddTransient<IAlertTypeService, AlertTypeService>();
 builder.Services.AddTransient<IAlertTypeRepository, AlertTypeRepository>();
+builder.Services.AddTransient<IRabbitMqService, RabbitMqService>();
 builder.Services.AddTransient<IAlertService, AlertService>();
 builder.Services.AddTransient<IAlertRepository, AlertRepository>();
 

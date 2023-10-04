@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace AgendaApp.Service.Impementations
@@ -15,16 +16,19 @@ namespace AgendaApp.Service.Impementations
     public class AlertService : IAlertService
     {
         private readonly IAlertRepository _repository;
+        private readonly IRabbitMqService _rabbitMqService;
         private readonly ILogger _logger;
         private readonly IMapper _mapper;
 
         public AlertService(
-            IAlertRepository repository,
             IMapper mapper,
+            IRabbitMqService rabbitMqService,
+            IAlertRepository repository,
             ILogger<AlertService> logger)
         {
             _mapper = mapper;
             _logger = logger;
+            _rabbitMqService = rabbitMqService;
             _repository = repository;
             _logger.LogInformation($"The AlertService was invoked");
         }
@@ -63,6 +67,9 @@ namespace AgendaApp.Service.Impementations
             var entidade = _mapper.Map<Alert>(dto);
             var result = _repository.CreateWRet(entidade);
             _repository.SaveChanges();
+
+            var jsonResult = JsonSerializer.Serialize(result);
+            _rabbitMqService.SendMessage(jsonResult);
 
             _logger.LogInformation($"The AlertService was invoked. Method was finished: Save()");
 
